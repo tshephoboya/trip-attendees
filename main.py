@@ -5,7 +5,16 @@
 #do the math
 
 tripAttendees = int(input("Enter number of trip attendees: "))
-spendingAmount = [float(input(f"Enter amount spent by student {i}: ")) for i in range(1, tripAttendees+1)]
+if tripAttendees > 1000:
+    tripAttendees = 1000
+
+spendingAmount = []
+for i in range(1, tripAttendees+1):
+    spending = float(input(f"Enter amount spent by student {i}: "))
+    if spending > 10000:
+        spendingAmount.append(10000)
+    else:
+        spendingAmount.append(spending)
 
 averageSpent = sum(spendingAmount) / len(spendingAmount)
 total = 0
